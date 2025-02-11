@@ -7,12 +7,11 @@ import java.util.List;
 
 public class CharityDatabase {
     public void insertDonor(Donor donor) throws SQLException {
-        String query = "INSERT INTO donors (id, name, email) VALUES (?, ?, ?)";
+        String query = "INSERT INTO donors (name, email) VALUES (?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, donor.getId());
-            stmt.setString(2, donor.getName());
-            stmt.setString(3, donor.getEmail());
+            stmt.setString(1, donor.getName());
+            stmt.setString(2, donor.getEmail());
             stmt.executeUpdate();
         }
     }
