@@ -45,7 +45,7 @@ public class ApiService {
             Donor donor = gson.fromJson(req.body(), Donor.class);
             try {
                 db.insertDonor(donor);
-                res.status(201);  // Created
+                res.status(201);
                 return donor;
             } catch (Exception e) {
                 res.status(500);
